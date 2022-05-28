@@ -1,0 +1,98 @@
+import React, { useEffect, useState, useRef } from "react";
+import "./styles.css";
+
+export default function App() {
+  let inp1 = useRef(0),
+    inp2 = useRef(0),
+    inp3 = useRef(0),
+    inp4 = useRef(0);
+
+  const [num1, setNum1] = useState("");
+  const [num2, setNum2] = useState("");
+  const [num3, setNum3] = useState("");
+  const [num4, setNum4] = useState("");
+
+  useEffect(() => {
+    if (num1 !== "") inp2.current.focus();
+  }, [num1]);
+
+  useEffect(() => {
+    if (num2 !== "") inp3.current.focus();
+  }, [num2]);
+
+  useEffect(() => {
+    if (num3 !== "") inp4.current.focus();
+  }, [num3]);
+
+  useEffect(() => {
+    if (num4 !== "") inp1.current.focus();
+  }, [num4]);
+
+  return (
+    <div className="App" style={styles.page}>
+      <h1 style={{ color: "darkblue" }}>Enter the OTP</h1>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <input
+          style={styles.boxStyle}
+          ref={inp1}
+          type="number"
+          value={num1}
+          onChange={(e) =>
+            setNum1(e.target.value <= 9 ? e.target.value : e.target.value % 10)
+          }
+        />
+        <input
+          style={styles.boxStyle}
+          ref={inp2}
+          type="number"
+          value={num2}
+          onChange={(e) =>
+            setNum2(e.target.value <= 9 ? e.target.value : e.target.value % 10)
+          }
+        />
+        <input
+          style={styles.boxStyle}
+          ref={inp3}
+          type="number"
+          value={num3}
+          onChange={(e) =>
+            setNum3(e.target.value <= 9 ? e.target.value : e.target.value % 10)
+          }
+          maxLength="1"
+        />
+        <input
+          style={styles.boxStyle}
+          ref={inp4}
+          type="number"
+          value={num4}
+          onChange={(e) =>
+            setNum4(e.target.value <= 9 ? e.target.value : e.target.value % 10)
+          }
+          maxLength="1"
+        />
+      </div>
+      <div style={{ marginTop: 15 }}>
+        otp entered is {num1}
+        {num2}
+        {num3}
+        {num4}
+      </div>
+    </div>
+  );
+}
+
+const styles = {
+  boxStyle: {
+    height: 35,
+    width: 35,
+    marginRight: 5,
+    textAlign: "center"
+  },
+  page: {
+    justifyContent: "center",
+    background: "lightgray",
+    //width: "90vh",
+    height: "90vh",
+    padding: 100
+  }
+};
