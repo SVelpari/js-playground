@@ -1,8 +1,7 @@
-const array1 = [[0, 1], [2, 3,4,5], [4, 5, 6]];
-
-const result = array1.reduce((accumulator, currentValue) => accumulator.concat(currentValue));
-
+// const array1 = [[0, 1], [2, 3,4,5], [4, 5, 6]];
+// const result = array1.reduce((accumulator, currentValue) => accumulator.concat(currentValue));
 // console.log(result);
+
 // expected output: Array [4, 5, 2, 3, 0, 1]
 
 // console.log(array1.flat(Infinity));
@@ -13,3 +12,6 @@ const result = array1.reduce((accumulator, currentValue) => accumulator.concat(c
 // console.log(answer);
 
 
+// const array1 = [1,2,[2],[3,4],[4,5,6]];
+// const result = array1.reduce((accumulator, currentValue) => accumulator.concat(currentValue));
+// console.log(result);
